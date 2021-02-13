@@ -3,7 +3,9 @@
 {
   "name": "Node.js",
   "build": {
-    "dockerfile": "../Dockerfile.dev",
+    "dockerfile": "Dockerfile",
+    // Update 'VARIANT' to pick a Node version: 10, 12, 14
+    "args": {"VARIANT": "14"}
   },
 
   // Set *default* container specific settings.json values on container create.
@@ -70,9 +72,9 @@
   "forwardPorts": [8000],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "yarn start",
+  // "postCreateCommand": "npm install",
 
-  "containerEnv": { "CHOKIDAR_USEPOLLING": "true" },
+  "containerEnv": {"CHOKIDAR_USEPOLLING": "true"},
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "node"
