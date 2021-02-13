@@ -1,0 +1,61 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug CRA Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+      "args": [
+        "test",
+        "--runInBand",
+        "--no-cache",
+        "--watchAll=false",
+        "--runTestsByPath",
+        "${relativeFile}",
+        "--runInBand",
+        "--watch",
+        "--silent"
+      ],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "CI": "true"
+      },
+      "disableOptimisticBPs": true
+    },
+    {
+      "name": "Launch Server (Dev Spaces)",
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "preLaunchTask": "dev-spaces: prelaunch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "azds",
+      "runtimeArgs": [
+        "exec",
+        "--on-exit-resume-up",
+        "--",
+        "npm",
+        "run",
+        "start"
+      ],
+      "address": "127.0.0.1",
+      "port": 52226,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/app"
+    }
+  ]
+}

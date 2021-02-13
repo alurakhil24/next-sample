@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "dev-spaces: prelaunch",
+			"type": "dev-spaces.prelaunch",
+			"request": "launch",
+			"port": 52226
+		}
+	]
+}
